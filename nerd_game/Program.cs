@@ -8,9 +8,9 @@ namespace nerd_game
 {
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the game. \n How many players do you have? 2-8");
+            Console.WriteLine("Welcome to the game. How many players do you have? 2-8");
 
             string playerCountBad = Console.ReadLine();
             int playerCount = int.Parse(playerCountBad); string playersPluck = "1.5";
@@ -34,7 +34,7 @@ namespace nerd_game
                     var rand = new Random();
                     double playerLuck1 = rand.Next(0, 10);
                     int playerRoll1 = rand.Next(1, 10);
-
+                    int playerPoints = 10;
 
 
 
@@ -43,6 +43,7 @@ namespace nerd_game
                     Console.WriteLine($"Player age is {playerAge1}.");
                     Console.WriteLine($"Player luck is 1.{playerLuck1}.");
                     Console.WriteLine($"Player roll is {playerRoll1}.");
+                    Console.WriteLine($"Player points are {playerPoints}");
                     break;
                 case 3:
                     Console.WriteLine("You have 3 players");
@@ -73,8 +74,12 @@ namespace nerd_game
                     Console.WriteLine("Restart!!!");
                     break;
             }
+
+          
+
             Console.ReadKey();
             Player.certifiedHoodClassic();
+            MiniGame.numGuess(10);
             Console.ReadKey();
         }
        
@@ -101,6 +106,29 @@ namespace nerd_game
             Console.WriteLine($"Player age is {playerAge}.");
             Console.WriteLine($"Player luck is 1.{playerLuck}.");
             Console.WriteLine($"Player roll is {playerRoll}.");
+        }
+    }
+
+    public class MiniGame
+    {
+        public static void numGuess(int playerPoints)
+        {
+            Console.WriteLine("Ok now its time for the number guesser mini game. Player 1 Please pick a number");
+            int correctNum = Convert.ToInt32(Console.ReadLine());
+
+            while (correctNum != 77) {
+                Console.WriteLine("Make another guess");
+                correctNum = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.WriteLine("That is correct");
+
+            if (correctNum != 77)
+            {
+                playerPoints--;
+            }
+            else {
+                playerPoints++;
+            }
         }
     }
 }
