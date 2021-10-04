@@ -10,7 +10,7 @@ namespace nerd_game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("How many players do you have? 2-8");
+            Console.WriteLine("Welcome to the game. \n How many players do you have? 2-8");
 
             string playerCountBad = Console.ReadLine();
             int playerCount = int.Parse(playerCountBad); string playersPluck = "1.5";
